@@ -1,5 +1,5 @@
 overwrite: true
-schema: 'https://api.spacex.land/graphql/'
+schema: 'http://idontthink.wpengine.com/graphql'
 documents: 'src/graphql/**/*.ts'
 generates:
   src/generated/graphql.tsx:
@@ -15,4 +15,4 @@ generates:
       withComponent: false
       withHOC: false
       withMutationFn: false
-      withResultType: false 
+      withResultType: false

@@ -6,21 +6,21 @@ import React from 'react'
 
 import { crop } from '../../utils/crop'
 import styles from './LaunchesItem.module.scss'
-import { Launch } from '../../generated/graphql'
+import { Post } from '../../generated/graphql'
 import noPhoto from '../../assets/images/no-photo.svg'
 
 interface Props {
-  launch: Launch
+  post: Post
 }
 
 const LaunchesItem: React.FC<Props> = (props) => {
-  const { launch } = props
+  const { post } = props
 
   return (
-    <IonCard button className={styles.card} routerLink={`/launches/${launch.id}`}>
-      <IonImg src={launch.links.flickr_images[0] || noPhoto} className={styles.img} />
-      <h2 className={styles.cardTitle}>{crop(launch.mission_name, 15)}</h2>
-      <p className={styles.cardSubtitle}>{launch.rocket.rocket_name}</p>
+    <IonCard button className={styles.card} routerLink={`/launches/${post.id}`}>
+      <IonImg src={noPhoto} className={styles.img} />
+      <h2 className={styles.cardTitle}>{crop(post.id, 15)}</h2>
+      <p className={styles.cardSubtitle}>{post.title}</p>
     </IonCard>
   )
 }

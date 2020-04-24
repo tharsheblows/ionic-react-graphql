@@ -13,51 +13,51 @@ import {
 
 import Error from '../error/Error'
 import LaunchesItem from './LaunchesItem'
-import { useLaunchesPastQuery, Launch } from '../../generated/graphql'
+import { useGet_PostsQuery, Post } from '../../generated/graphql'
 
 
 const Launches: React.FC = () => {
-  const { data, loading, error, fetchMore } = useLaunchesPastQuery({
-    variables: {
-      limit: 12,
-      offset: 0
-    }
+  const { data, loading, error, fetchMore } = useGet_PostsQuery({
+		variables: {
+			first: 12,
+			after: '',
+		},
   })
 
-  const [offset, setOffset] = useState(0)
-  const [limit] = useState(12)
+  const [after, setAfter] = useState('')
+  const [first] = useState(12)
   const [finished, setFinished] = useState(false)
 
-  const handleLoadMore = useCallback(() => {
-    setOffset(limit + offset)
-  }, [limit, offset])
+  const handleLoadMore = useCallback(( endCursor ) => {
+    setAfter( endCursor )
+  }, [data])
 
-  useEffect(() => {
-    if (offset > 0) {
-      fetchMore<'offset'>({
-        variables: {
-          offset
-        },
-        updateQuery (previous, { fetchMoreResult }) {
-          if (!fetchMoreResult) {
-            return previous
-          }
+//   useEffect(() => {
+//     if (after ) {
+//       fetchMore<'after'>({
+//         variables: {
+//           after: data.pageInfo.endCursor
+//         },
+//         updateQuery (previous, { fetchMoreResult }) {
+//           if (!fetchMoreResult) {
+//             return previous
+//           }
 
-          if (fetchMoreResult.launchesPast.length < limit) {
-            setFinished(true)
-          }
+//           if (fetchMoreResult.posts.length < limit) {
+//             setFinished(true)
+//           }
 
-          return {
-            ...previous,
-            launchesPast: [
-              ...previous.launchesPast,
-              ...fetchMoreResult.launchesPast
-            ]
-          }
-        }
-      })
-    }
-  }, [fetchMore, limit, offset])
+//           return {
+//             ...previous,
+//             posts: [
+//               ...previous.posts,
+//               ...fetchMoreResult.posts
+//             ]
+//           }
+//         }
+//       })
+//     }
+//   }, [fetchMore, limit, after])
 
   if (loading) {
     return <IonLoading isOpen={loading} message='Loading...' />
@@ -70,9 +70,9 @@ const Launches: React.FC = () => {
   return (
     <IonGrid fixed>
       <IonRow>
-        {data && data.launchesPast.map(launch => (
-          <IonCol key={launch.id} size='12' sizeSm='6' sizeLg='4'>
-            <LaunchesItem launch={launch as Launch} />
+        {data && data.posts.nodes.map(post => (
+          <IonCol key={post.id} size='12' sizeSm='6' sizeLg='4'>
+            {post.id}
           </IonCol>
         ))}
       </IonRow>

@@ -19,7 +19,7 @@ const LaunchesPage: React.FC = () => {
           <IonButtons slot='start'>
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>SpaceX Launches</IonTitle>
+          <IonTitle>SpaceX Launches! :(</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">

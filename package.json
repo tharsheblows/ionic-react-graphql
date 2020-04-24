@@ -20,7 +20,6 @@
     "react-dom": "^16.10.2",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
-    "react-scripts": "3.2.0",
     "typescript": "3.6.3"
   },
   "scripts": {
@@ -53,6 +52,7 @@
     "@graphql-codegen/typescript": "^1.8.2",
     "@graphql-codegen/typescript-operations": "^1.8.2",
     "@graphql-codegen/typescript-react-apollo": "^1.8.2",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.0",
+    "react-scripts": "3.2.0"
   }
 }

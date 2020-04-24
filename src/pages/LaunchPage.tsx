@@ -17,11 +17,11 @@ import Error from '../components/error/Error'
 import React, { useState, useCallback } from 'react'
 import ImageViewer from '../components/image/ImageViewer'
 import LaunchDetail from '../components/launch/LaunchDetail'
-import { useLaunchQuery, Launch } from '../generated/graphql'
+import { useGet_PostQuery, Post } from '../generated/graphql'
 
 const LaunchPage: React.FC = () => {
   const { id } = useParams<{id: string}>()
-  const { data, loading, error } = useLaunchQuery({
+  const { data, loading, error } = useGet_PostQuery({
     variables: { id }
   })
 
@@ -51,7 +51,7 @@ const LaunchPage: React.FC = () => {
                 <IonLoading isOpen={loading} message='Loading...' />
               ) : error ? <Error error={error}/> : (
                 <LaunchDetail
-                  launch={data!.launch as Launch}
+                  launch={data!.post as Post}
                   onSelectImage={handleSelectImage}
                 />
               )}
