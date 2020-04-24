@@ -3,21 +3,21 @@ import { IonRouterOutlet } from '@ionic/react'
 import { Redirect, Route } from 'react-router-dom'
 import { IonReactRouter } from '@ionic/react-router'
 
-import LaunchPage from '../pages/LaunchPage'
-import LaunchesPage from '../pages/LaunchesPage'
+import PostPage from '../pages/PostPage'
+import PostsPage from '../pages/PostsPage'
 
 const Router: React.FC = props => (
   <IonReactRouter>
     {props.children}
     <IonRouterOutlet id='main-content'>
-      <Route path="/launches" exact>
-        <LaunchesPage />
+      <Route path="/posts" exact>
+        <PostsPage />
       </Route>
-      <Route path="/launches/:id" exact>
-        <LaunchPage />
+	  <Route path="/posts/:id" exact>
+        <PostPage />
       </Route>
       <Route path="/" exact>
-        <Redirect to="/launches" />
+        <Redirect to="/posts" />
       </Route>
     </IonRouterOutlet>
   </IonReactRouter>

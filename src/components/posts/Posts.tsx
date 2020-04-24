@@ -12,11 +12,11 @@ import {
 } from '@ionic/react'
 
 import Error from '../error/Error'
-import LaunchesItem from './LaunchesItem'
+import PostsItem from './PostsItem'
 import { useGet_PostsQuery, Post } from '../../generated/graphql'
 
 
-const Launches: React.FC = () => {
+const Posts: React.FC = () => {
   const { data, loading, error, fetchMore } = useGet_PostsQuery({
 		variables: {
 			first: 12,
@@ -87,4 +87,4 @@ const Launches: React.FC = () => {
   )
 }
 
-export default Launches
+export default Posts

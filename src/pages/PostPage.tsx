@@ -16,10 +16,10 @@ import { useParams } from 'react-router'
 import Error from '../components/error/Error'
 import React, { useState, useCallback } from 'react'
 import ImageViewer from '../components/image/ImageViewer'
-import LaunchDetail from '../components/launch/LaunchDetail'
+import PostDetail from '../components/post/PostDetail'
 import { useGet_PostQuery, Post } from '../generated/graphql'
 
-const LaunchPage: React.FC = () => {
+const PostPage: React.FC = () => {
   const { id } = useParams<{id: string}>()
   const { data, loading, error } = useGet_PostQuery({
     variables: { id }
@@ -38,9 +38,9 @@ const LaunchPage: React.FC = () => {
       <IonHeader>
         <IonToolbar color="primary">
           <IonButtons slot='start'>
-            <IonBackButton defaultHref='/launches' />
+            <IonBackButton defaultHref='/posts' />
           </IonButtons>
-          <IonTitle>Launch</IonTitle>
+          <IonTitle>Post</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className='ion-padding'>
@@ -50,7 +50,7 @@ const LaunchPage: React.FC = () => {
               {loading ? (
                 <IonLoading isOpen={loading} message='Loading...' />
               ) : error ? <Error error={error}/> : (
-                <LaunchDetail
+                <PostDetail
                   launch={data!.post as Post}
                   onSelectImage={handleSelectImage}
                 />
@@ -67,4 +67,4 @@ const LaunchPage: React.FC = () => {
   )
 }
 
-export default LaunchPage
+export default PostPage

@@ -12,7 +12,7 @@ import {
 } from '@ionic/react'
 import { format } from 'date-fns'
 import React, { useMemo } from 'react'
-import styles from './LaunchDetail.module.scss'
+import styles from './PostDetail.module.scss'
 import { Post } from '../../generated/graphql'
 import { checkmark, close } from 'ionicons/icons'
 import noPhoto from '../../assets/images/no-photo.svg'
@@ -22,7 +22,7 @@ interface Props {
   onSelectImage?: (url: string) => void
 }
 
-const LaunchDetail: React.FC<Props> = props => {
+const PostDetail: React.FC<Props> = props => {
   const { launch, onSelectImage = () => null } = props
   const date = useMemo(() => format(new Date(), 'dd-MM-yyyy HH:mm:ss'),
     [])
@@ -50,4 +50,4 @@ const LaunchDetail: React.FC<Props> = props => {
     </IonCard>
 )}
 
-export default LaunchDetail
+export default PostDetail

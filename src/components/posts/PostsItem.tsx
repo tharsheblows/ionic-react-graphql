@@ -5,7 +5,7 @@ import {
 import React from 'react'
 
 import { crop } from '../../utils/crop'
-import styles from './LaunchesItem.module.scss'
+import styles from './PostsItem.module.scss'
 import { Post } from '../../generated/graphql'
 import noPhoto from '../../assets/images/no-photo.svg'
 
@@ -13,11 +13,11 @@ interface Props {
   post: Post
 }
 
-const LaunchesItem: React.FC<Props> = (props) => {
+const PostsItem: React.FC<Props> = (props) => {
   const { post } = props
 
   return (
-    <IonCard button className={styles.card} routerLink={`/launches/${post.id}`}>
+    <IonCard button className={styles.card} routerLink={`/posts/${post.id}`}>
       <IonImg src={noPhoto} className={styles.img} />
       <h2 className={styles.cardTitle}>{crop(post.id, 15)}</h2>
       <p className={styles.cardSubtitle}>{post.title}</p>
@@ -25,4 +25,4 @@ const LaunchesItem: React.FC<Props> = (props) => {
   )
 }
 
-export default LaunchesItem
+export default PostsItem

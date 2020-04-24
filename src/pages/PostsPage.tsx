@@ -9,9 +9,9 @@ import {
 } from '@ionic/react'
 import React from 'react'
 
-import Launches from '../components/launches/Launches'
+import Posts from '../components/posts/Posts'
 
-const LaunchesPage: React.FC = () => {
+const PostsPage: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -19,14 +19,14 @@ const LaunchesPage: React.FC = () => {
           <IonButtons slot='start'>
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>SpaceX Launches! :(</IonTitle>
+          <IonTitle>SpaceX Posts! :(</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <Launches />
+        <Posts />
       </IonContent>
     </IonPage>
   )
 }
 
-export default LaunchesPage
+export default PostsPage
