@@ -1,53 +1,51 @@
 import {
-  IonImg,
-  IonCol,
-  IonRow,
-  IonText,
-  IonIcon,
-  IonCard,
-  IonItem,
-  IonAvatar,
-  IonThumbnail,
-  IonCardContent
+	IonImg,
+	IonCol,
+	IonRow,
+	IonText,
+	IonIcon,
+	IonCard,
+	IonItem,
+	IonAvatar,
+	IonThumbnail,
+	IonCardContent,
+	IonDatetime,
 } from '@ionic/react'
-import { format } from 'date-fns'
 import React, { useMemo } from 'react'
 import styles from './PostDetail.module.scss'
 import { Post } from '../../generated/graphql'
-import { checkmark, close } from 'ionicons/icons'
-import noPhoto from '../../assets/images/no-photo.svg'
+import { formatDate } from '../../utils/formatDate'
+import { parseContent } from '../../utils/formatContent'
+
+import '@wordpress/block-library/build-style/style.css'
+import '@wordpress/block-library/build-style/theme.css'
 
 interface Props {
-  launch: Post
-  onSelectImage?: (url: string) => void
+	post: Post
+	onSelectImage?: (url: string) => void
 }
 
-const PostDetail: React.FC<Props> = props => {
-  const { launch, onSelectImage = () => null } = props
-  const date = useMemo(() => format(new Date(), 'dd-MM-yyyy HH:mm:ss'),
-    [])
-
-  return (
-    <IonCard>
-      <IonItem lines='none'>
-        <IonAvatar>
-
-        </IonAvatar>
-        <IonText color='dark'>
-          <h2 className='ion-no-margin'>{launch.title}</h2>
-          <p className='ion-no-margin'>{} | {date}</p>
-        </IonText>
-        <IonIcon
-          slot='end'
-          color={launch.id ? 'success' : 'danger'}
-          icon={launch.id ? checkmark : close}
-        />
-      </IonItem>
-
-
-      <IonCardContent>{launch.content}</IonCardContent>
-
-    </IonCard>
-)}
+const PostDetail: React.FC<Props> = (props) => {
+	const { post } = props
+	const formattedDate = useMemo( () => formatDate( post.date ), [post.date])
+	console.log( post.content )
+	return (
+		<IonCard className={styles.postCard} color="light">
+			<IonItem lines="none">
+				<IonAvatar></IonAvatar>
+				<IonText>
+					<h2
+						className={styles.cardHeading}
+						dangerouslySetInnerHTML={{ __html: post.title }}
+					></h2>
+					<p>{formattedDate}</p>
+				</IonText>
+			</IonItem>
+			<IonText>
+				<div dangerouslySetInnerHTML={{ __html: parseContent( post.content, 'https://tharshetests.netlify.app' ) }}></div>
+			</IonText>
+		</IonCard>
+	)
+}
 
 export default PostDetail

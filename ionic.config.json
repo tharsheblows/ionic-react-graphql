@@ -1,5 +1,7 @@
 {
-  "name": "spacex",
-  "integrations": {},
+  "name": "tharshetests",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }

@@ -1,11 +1,18 @@
-.img {
-  height: 250px;
-  overflow: hidden;
-  object-fit: cover
+@font-face {
+  font-family: 'Metropolis-ExtraLight';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/fonts/Metropolis-ExtraLight.otf');
 }
 
-.thumb {
-  @extend .img;
-  --size: 100%;
-  height: 100px
+.postCard{
+	padding: 1em;
+	font-size: 1em;
+	line-height: 1.7;
+}
+
+.cardHeading{
+  font-size: 2em;
+  font-weight: bold;
+  font-family: 'Metropolis-ExtraLight', sans-serif;
 }

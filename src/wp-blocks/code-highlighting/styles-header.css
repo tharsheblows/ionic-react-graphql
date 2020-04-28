@@ -1,0 +1,33 @@
+.language-header {
+  padding: 0.5em 1em 0.3em 1em;
+  margin: 0;
+  color: white;
+}
+
+pre[class*='language-'] {
+  margin-top: 0;
+}
+
+.language-header.css {
+  background: firebrick;
+}
+.language-header.javascript {
+  background: coral;
+}
+.language-header.haml {
+  background: cornflowerblue;
+}
+.language-header.php {
+  background: #2c7a7b;
+}
+.language-header.json {
+  background: darkslategray;
+}
+.language-header.jsx {
+  background: indigo;
+}
+
+.mjj-code-highlighting {
+  border-radius: 5px;
+  border: 0.25em solid #4a5568;
+}

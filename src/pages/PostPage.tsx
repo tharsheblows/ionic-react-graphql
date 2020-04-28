@@ -17,12 +17,12 @@ import Error from '../components/error/Error'
 import React, { useState, useCallback } from 'react'
 import ImageViewer from '../components/image/ImageViewer'
 import PostDetail from '../components/post/PostDetail'
-import { useGet_PostQuery, Post } from '../generated/graphql'
+import { useGet_Post_By_SlugQuery, Post } from '../generated/graphql'
 
 const PostPage: React.FC = () => {
-  const { id } = useParams<{id: string}>()
-  const { data, loading, error } = useGet_PostQuery({
-    variables: { id }
+  const { slug } = useParams<{slug: string}>()
+  const { data, loading, error } = useGet_Post_By_SlugQuery({
+		variables: { slug },
   })
 
   const [selectedImage, setSelectedImage] = useState('')
@@ -51,7 +51,7 @@ const PostPage: React.FC = () => {
                 <IonLoading isOpen={loading} message='Loading...' />
               ) : error ? <Error error={error}/> : (
                 <PostDetail
-                  launch={data!.post as Post}
+                  post={data!.postBy as Post}
                   onSelectImage={handleSelectImage}
                 />
               )}

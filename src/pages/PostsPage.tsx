@@ -19,7 +19,7 @@ const PostsPage: React.FC = () => {
           <IonButtons slot='start'>
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>SpaceX Posts! :(</IonTitle>
+          <IonTitle>tharshetests testing ionic/graphql/react + wp</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">

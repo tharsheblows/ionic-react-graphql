@@ -13,7 +13,7 @@ const Router: React.FC = props => (
       <Route path="/posts" exact>
         <PostsPage />
       </Route>
-	  <Route path="/posts/:id" exact>
+	  <Route path="/posts/:slug" exact>
         <PostPage />
       </Route>
       <Route path="/" exact>

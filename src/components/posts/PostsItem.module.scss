@@ -1,33 +1,47 @@
+@font-face {
+  font-family: 'Metropolis-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/fonts/Metropolis-Regular.otf');
+}
+
 .img {
   height: 250px;
   overflow: hidden;
   object-fit: cover;
+  opacity: 0.8;
 }
 
 .card {
   position: relative;
   text-align: center;
+  overflow: hidden;
+  height: 250px;
 }
 
 .baseText {
-  position: absolute;
-  color: var(--ion-color-light);
-  width: 100%;
+  position: relative;
+  color: var(--ion-color-dark);
+  max-width: 100%;
   margin: auto;
   text-align: center;
+
 }
 
 .cardTitle {
   @extend .baseText;
-  top: 36%;
-  font-size: 2em;
-  font-weight: bold;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  top: 50%;
+  margin-top: -59%;
+  padding: 0.5em;
+  background-color: white;
 }
 
-.cardSubtitle {
-  @extend .baseText;
-  font-size: 1.2em;
-  top: 52%;
+.cardHeading{
+  font-size: 1.65em;
+  font-weight: bold;
+  font-family: 'Metropolis-Regular', sans-serif;
+}
+
+.cardDate{
+  font-size: 1.25em;
 }

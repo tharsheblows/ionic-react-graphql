@@ -1352,9 +1352,9 @@ export enum MediaItemSizeEnum {
   /** MediaItem with the twentyseventeen-thumbnail-avatar size */
   TwentyseventeenThumbnailAvatar = 'TWENTYSEVENTEEN_THUMBNAIL_AVATAR',
   /** MediaItem with the 1536x1536 size */
-  /** 1536X1536 = '_1536X1536', // must comment out */
+  /** 1536X1536 = '_1536X1536', */
   /** MediaItem with the 2048x2048 size */
- /**  2048X2048 = '_2048X2048' // must comment out */
+  /** 2048X2048 = '_2048X2048' */
 }
 
 /** The status of the media item object. */
@@ -6408,7 +6408,7 @@ export type Get_PostsQuery = (
       & Pick<WpPageInfo, 'hasNextPage' | 'endCursor'>
     )>, nodes: Maybe<Array<Maybe<(
       { __typename?: 'Post' }
-      & Pick<Post, 'id' | 'uri' | 'slug' | 'postId' | 'title' | 'content' | 'excerpt' | 'guid'>
+      & Pick<Post, 'id' | 'date' | 'slug' | 'postId' | 'title' | 'excerpt'>
     )>>> }
   )> }
 );
@@ -6422,7 +6422,7 @@ export type Get_PostQuery = (
   { __typename?: 'RootQuery' }
   & { post: Maybe<(
     { __typename?: 'Post' }
-    & Pick<Post, 'id' | 'postId' | 'title' | 'date' | 'uri'>
+    & Pick<Post, 'id' | 'postId' | 'content' | 'title' | 'date'>
   )> }
 );
 
@@ -6435,7 +6435,7 @@ export type Get_Post_By_SlugQuery = (
   { __typename?: 'RootQuery' }
   & { postBy: Maybe<(
     { __typename?: 'Post' }
-    & Pick<Post, 'id' | 'title' | 'slug' | 'uri'>
+    & Pick<Post, 'id' | 'date' | 'content' | 'title' | 'slug'>
   )> }
 );
 
@@ -6449,13 +6449,11 @@ export const Get_PostsDocument = gql`
     }
     nodes {
       id
-      uri
+      date
       slug
       postId
       title
-      content
       excerpt
-      guid
     }
   }
 }
@@ -6491,9 +6489,9 @@ export const Get_PostDocument = gql`
   post(id: $id) {
     id
     postId
+    content
     title
     date
-    uri
   }
 }
     `;
@@ -6526,9 +6524,10 @@ export const Get_Post_By_SlugDocument = gql`
     query GET_POST_BY_SLUG($slug: String) {
   postBy(slug: $slug) {
     id
+    date
+    content
     title
     slug
-    uri
   }
 }
     `;

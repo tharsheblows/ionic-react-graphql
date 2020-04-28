@@ -24,13 +24,11 @@ export const GET_POSTS = gql`
 			}
 			nodes {
 				id
-				uri
+				date
 				slug
 				postId
 				title
-				content
 				excerpt
-				guid
 			}
 		}
 	}
@@ -41,20 +39,21 @@ export const GET_POST = gql`
 		post(id: $id) {
 			id
 			postId
+			content
 			title
 			date
-			uri
 		}
 	}
 `
 
 export const GET_POST_BY_SLUG = gql`
-	query GET_POST_BY_SLUG( $slug: String ) {
+	query GET_POST_BY_SLUG($slug: String) {
 		postBy(slug: $slug) {
 			id
+			date
+			content
 			title
 			slug
-			uri
 		}
 	}
 `
