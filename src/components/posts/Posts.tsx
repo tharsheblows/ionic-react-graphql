@@ -31,12 +31,11 @@ const Posts: React.FC = () => {
 
 	useEffect(() => {
 		// See https://www.apollographql.com/docs/tutorial/queries/.
-		let endCursor = data ? data.posts.pageInfo.endCursor : ''
-		if (endCursor) {
+		if (after) {
 			fetchMore({
 				variables: {
 					first: first,
-					after: endCursor,
+					after: after,
 				},
 				updateQuery: (
 					previous,
@@ -65,7 +64,7 @@ const Posts: React.FC = () => {
 				},
 			})
 		}
-	}, [fetchMore, first, after, data])
+	}, [fetchMore, first, after])
 
 	if (loading) {
 		return <IonLoading isOpen={loading} message="Loading..." />

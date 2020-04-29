@@ -1,14 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import React from 'react'
 
 import { Component } from '@wordpress/element'
 import { circleTextStyles } from './styles.js'
 
 class MJJCircleText extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     let attributes = this.props.attributes

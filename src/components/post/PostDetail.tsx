@@ -1,15 +1,8 @@
 import {
-	IonImg,
-	IonCol,
-	IonRow,
 	IonText,
-	IonIcon,
 	IonCard,
 	IonItem,
-	IonAvatar,
-	IonThumbnail,
-	IonCardContent,
-	IonDatetime,
+	IonAvatar
 } from '@ionic/react'
 import React, { useMemo } from 'react'
 import styles from './PostDetail.module.scss'

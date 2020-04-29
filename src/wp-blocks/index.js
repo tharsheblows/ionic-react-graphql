@@ -1,6 +1,5 @@
 import { circleText } from './circle-text'
 import { codeHighlighting } from './code-highlighting'
-import React from 'react'
 
 export function getLocalBlock(block) {
   const { blockName, attrs } = block
@@ -11,7 +10,9 @@ export function getLocalBlock(block) {
       break
     case 'mjj-why/code-highlighting':
       html += codeHighlighting(attrs)
-      break
+	  break
+	default:
+	  break
   }
   return html
 }

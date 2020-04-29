@@ -16,7 +16,6 @@ export const parseContent = (html, wordPressUrl, prefix = '') => {
 				blockName,
 				innerHTML,
 				innerBlocks,
-				innerContent,
 			} = indivBlock
 			if (blockName && blockName.startsWith('core')) {
 				if (innerBlocks.length > 0) {
@@ -37,7 +36,7 @@ export const parseContent = (html, wordPressUrl, prefix = '') => {
 // This switches the install links to the netlify links
 let createLocalLinks = (html, wordPressUrl, prefix = '') => {
 	const regex = /href\s*=\s*(['"])(https?:\/\/.+?)(img)?(src=['"]https?:\/\/.+?)?(\/a>)/gi
-	const isImgHttps = /src=(['"])(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi
+	const isImgHttps = /src=(['"])(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi
 	let link
 	while ((link = regex.exec(html)) !== null) {
 		if (link[2].includes(wordPressUrl) && link[4] === undefined) {
