@@ -65,7 +65,7 @@ const Posts: React.FC = () => {
 				},
 			})
 		}
-	}, [fetchMore, first, after])
+	}, [fetchMore, first, after, data])
 
 	if (loading) {
 		return <IonLoading isOpen={loading} message="Loading..." />
