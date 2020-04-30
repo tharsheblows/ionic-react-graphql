@@ -21,7 +21,6 @@ interface Props {
 const PostDetail: React.FC<Props> = (props) => {
 	const { post } = props
 	const formattedDate = useMemo( () => formatDate( post.date ), [post.date])
-	console.log( post.content )
 	return (
 		<IonCard className={styles.postCard} color="light">
 			<IonItem lines="none">
