@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "uk.co.porchy.ionic",
   "appName": "tharshetests",
   "bundledWebRuntime": false,
   "npmClient": "npm",

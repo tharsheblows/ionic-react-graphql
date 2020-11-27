@@ -30,7 +30,7 @@ export type ActionMonitorAction = Node & ContentNode & DatabaseIdentifier & Node
   dateGmt: Maybe<Scalars['String']>,
   /** The desired slug of the post */
   desiredSlug: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If a user has edited the node within the past 15 seconds, this will return the
    * user that last edited. Null if the edit lock doesn&#039;t exist or is greater
    * than 15 seconds
@@ -42,7 +42,7 @@ export type ActionMonitorAction = Node & ContentNode & DatabaseIdentifier & Node
   enqueuedScripts: Maybe<ContentNodeToEnqueuedScriptConnection>,
   /** Connection between the ContentNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets: Maybe<ContentNodeToEnqueuedStylesheetConnection>,
-  /** 
+  /**
  * The global unique identifier for this post. This currently matches the value
    * stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot;
    * database table.
@@ -58,12 +58,12 @@ export type ActionMonitorAction = Node & ContentNode & DatabaseIdentifier & Node
   lastEditedBy: Maybe<ContentNodeToEditLastConnectionEdge>,
   /** The permalink of the post */
   link: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The local modified time for a post. If a post was recently updated the
    * modified field will change to match the corresponding time.
  **/
   modified: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The GMT modified time for a post. If a post was recently updated the modified
    * field will change to match the corresponding time in GMT.
  **/
@@ -84,7 +84,7 @@ export type ActionMonitorAction = Node & ContentNode & DatabaseIdentifier & Node
   referencedNodeSingularName: Maybe<Scalars['String']>,
   /** The post status of the post that triggered this action */
   referencedNodeStatus: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
    * field and the post_name column in the database for the
    * &quot;post_objects&quot; table.
@@ -153,7 +153,7 @@ export type ActionMonitorActionToPreviewConnectionEdge = {
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
 export type Avatar = {
    __typename?: 'Avatar',
-  /** 
+  /**
  * URL for the default image or a default type. Accepts &#039;404&#039; (return a
    * 404 instead of a default image), &#039;retro&#039; (8bit),
    * &#039;monsterid&#039; (monster), &#039;wavatar&#039; (cartoon face),
@@ -172,7 +172,7 @@ export type Avatar = {
   height: Maybe<Scalars['Int']>,
   /** Whether the object is restricted from the current viewer */
   isRestricted: Maybe<Scalars['Boolean']>,
-  /** 
+  /**
  * What rating to display avatars up to. Accepts &#039;G&#039;, &#039;PG&#039;,
    * &#039;R&#039;, &#039;X&#039;, and are judged in that order.
  **/
@@ -187,7 +187,7 @@ export type Avatar = {
   width: Maybe<Scalars['Int']>,
 };
 
-/** 
+/**
  * What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are
  * judged in that order. Default is the value of the 'avatar_rating' option
  **/
@@ -364,7 +364,7 @@ export type CategoryToCategoryConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -373,7 +373,7 @@ export type CategoryToCategoryConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -563,13 +563,13 @@ export type CategoryToTaxonomyConnectionEdge = {
 /** A Comment object */
 export type Comment = Node & DatabaseIdentifier & {
    __typename?: 'Comment',
-  /** 
+  /**
  * User agent used to post the comment. This field is equivalent to
    * WP_Comment-&gt;comment_agent and the value matching the
    * &quot;comment_agent&quot; column in SQL.
  **/
   agent: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The approval status of the comment. This field is equivalent to
    * WP_Comment-&gt;comment_approved and the value matching the
    * &quot;comment_approved&quot; column in SQL.
@@ -577,7 +577,7 @@ export type Comment = Node & DatabaseIdentifier & {
   approved: Maybe<Scalars['Boolean']>,
   /** The author of the comment */
   author: Maybe<CommentToCommenterConnectionEdge>,
-  /** 
+  /**
  * IP address for the author. This field is equivalent to
    * WP_Comment-&gt;comment_author_IP and the value matching the
    * &quot;comment_author_IP&quot; column in SQL.
@@ -587,7 +587,7 @@ export type Comment = Node & DatabaseIdentifier & {
   commentId: Maybe<Scalars['Int']>,
   /** Connection between the Comment type and the ContentNode type */
   commentedOn: Maybe<CommentToContentNodeConnectionEdge>,
-  /** 
+  /**
  * Content of the comment. This field is equivalent to
    * WP_Comment-&gt;comment_content and the value matching the
    * &quot;comment_content&quot; column in SQL.
@@ -595,12 +595,12 @@ export type Comment = Node & DatabaseIdentifier & {
   content: Maybe<Scalars['String']>,
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int'],
-  /** 
+  /**
  * Date the comment was posted in local time. This field is equivalent to
    * WP_Comment-&gt;date and the value matching the &quot;date&quot; column in SQL.
  **/
   date: Maybe<Scalars['String']>,
-  /** 
+  /**
  * Date the comment was posted in GMT. This field is equivalent to
    * WP_Comment-&gt;date_gmt and the value matching the &quot;date_gmt&quot; column in SQL.
  **/
@@ -609,7 +609,7 @@ export type Comment = Node & DatabaseIdentifier & {
   id: Scalars['ID'],
   /** Whether the object is restricted from the current viewer */
   isRestricted: Maybe<Scalars['Boolean']>,
-  /** 
+  /**
  * Karma value for the comment. This field is equivalent to
    * WP_Comment-&gt;comment_karma and the value matching the
    * &quot;comment_karma&quot; column in SQL.
@@ -619,7 +619,7 @@ export type Comment = Node & DatabaseIdentifier & {
   parent: Maybe<CommentToParentCommentConnectionEdge>,
   /** Connection between the Comment type and the Comment type */
   replies: Maybe<CommentToCommentConnection>,
-  /** 
+  /**
  * Type of comment. This field is equivalent to WP_Comment-&gt;comment_type and
    * the value matching the &quot;comment_type&quot; column in SQL.
  **/
@@ -761,7 +761,7 @@ export type CommentToCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -847,7 +847,7 @@ export type CommentToParentCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -882,7 +882,7 @@ export type ContentNode = {
   dateGmt: Maybe<Scalars['String']>,
   /** The desired slug of the post */
   desiredSlug: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If a user has edited the node within the past 15 seconds, this will return the
    * user that last edited. Null if the edit lock doesn't exist or is greater than 15 seconds
  **/
@@ -893,7 +893,7 @@ export type ContentNode = {
   enqueuedScripts: Maybe<ContentNodeToEnqueuedScriptConnection>,
   /** Connection between the ContentNode type and the EnqueuedStylesheet type */
   enqueuedStylesheets: Maybe<ContentNodeToEnqueuedStylesheetConnection>,
-  /** 
+  /**
  * The global unique identifier for this post. This currently matches the value
    * stored in WP_Post->guid and the guid column in the "post_objects" database table.
  **/
@@ -908,12 +908,12 @@ export type ContentNode = {
   lastEditedBy: Maybe<ContentNodeToEditLastConnectionEdge>,
   /** The permalink of the post */
   link: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The local modified time for a post. If a post was recently updated the
    * modified field will change to match the corresponding time.
  **/
   modified: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The GMT modified time for a post. If a post was recently updated the modified
    * field will change to match the corresponding time in GMT.
  **/
@@ -922,7 +922,7 @@ export type ContentNode = {
   previewRevisionDatabaseId: Maybe<Scalars['Int']>,
   /** Whether the object is a node in the preview state */
   previewRevisionId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * The uri slug for the post. This is equivalent to the WP_Post->post_name field
    * and the post_name column in the database for the "post_objects" table.
  **/
@@ -1070,7 +1070,7 @@ export type ContentType = Node & UniformResourceIdentifiable & {
   menuPosition: Maybe<Scalars['Int']>,
   /** The internal name of the post type. This should not be used for display purposes. */
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * Whether a content type is intended for use publicly either via the admin
    * interface or by front-end users. While the default settings of
    * exclude_from_search, publicly_queryable, show_ui, and show_in_nav_menus are
@@ -1088,7 +1088,7 @@ export type ContentType = Node & UniformResourceIdentifiable & {
   showInAdminBar: Maybe<Scalars['Boolean']>,
   /** Whether to add the content type to the GraphQL Schema. */
   showInGraphql: Maybe<Scalars['Boolean']>,
-  /** 
+  /**
  * Where to show the content type in the admin menu. To work, $show_ui must be
    * true. If true, the post type is shown in its own top level menu. If false, no
    * menu is shown. If a string of an existing top level menu (eg.
@@ -1222,14 +1222,14 @@ export type ContentTypeToTaxonomyConnectionEdge = {
 /** Input for the createActionMonitorAction mutation */
 export type CreateActionMonitorActionInput = {
   clientMutationId: Scalars['String'],
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day (e.g.
    * 01/31/2017) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -1262,7 +1262,7 @@ export type CreateCategoryInput = {
   name: Scalars['String'],
   /** The ID of the category that should be set as the parent */
   parentId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * If this argument exists then the slug will be checked to see if it is not an
    * existing valid term. If that check succeeds (it is not a valid term), then it
    * is added and the term id is given. If it fails, then a check is made to
@@ -1296,11 +1296,11 @@ export type CreateCommentInput = {
   commentOn: Maybe<Scalars['Int']>,
   /** Content of the comment. */
   content: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day ( e.g.
    * 01/31/2017 ) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
   /** Parent comment of current comment. */
@@ -1315,7 +1315,7 @@ export type CreateCommentPayload = {
   clientMutationId: Scalars['String'],
   /** The comment that was created */
   comment: Maybe<Comment>,
-  /** 
+  /**
  * Whether the mutation succeeded. If the comment is not approved, the server
    * will not return the comment to a non authenticated user, but a success message
    * can be returned if the create succeeded, and the client can optimistically add
@@ -1373,14 +1373,14 @@ export type CreatePageInput = {
   commentStatus: Maybe<Scalars['String']>,
   /** The content of the object */
   content: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day (e.g.
    * 01/31/2017) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -1413,7 +1413,7 @@ export type CreatePostFormatInput = {
   description: Maybe<Scalars['String']>,
   /** The name of the post_format object to mutate */
   name: Scalars['String'],
-  /** 
+  /**
  * If this argument exists then the slug will be checked to see if it is not an
    * existing valid term. If that check succeeds (it is not a valid term), then it
    * is added and the term id is given. If it fails, then a check is made to
@@ -1443,16 +1443,16 @@ export type CreatePostInput = {
   commentStatus: Maybe<Scalars['String']>,
   /** The content of the object */
   content: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day (e.g.
    * 01/31/2017) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
   /** The excerpt of the object */
   excerpt: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -1493,7 +1493,7 @@ export type CreateTagInput = {
   description: Maybe<Scalars['String']>,
   /** The name of the post_tag object to mutate */
   name: Scalars['String'],
-  /** 
+  /**
  * If this argument exists then the slug will be checked to see if it is not an
    * existing valid term. If that check succeeds (it is not a valid term), then it
    * is added and the term id is given. If it fails, then a check is made to
@@ -1519,7 +1519,7 @@ export type CreateUserInput = {
   clientMutationId: Scalars['String'],
   /** A string containing content about the user. */
   description: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A string that will be shown on the site. Defaults to user's username. It is
    * likely that you will want to change this, for both appearance and security
    * through obscurity (that is if you dont use and delete the default admin user).
@@ -2053,7 +2053,7 @@ export type MediaItem = Node & ContentNode & DatabaseIdentifier & NodeWithTempla
   caption: Maybe<Scalars['String']>,
   /** Connection between the HierarchicalContentNode type and the ContentNode type */
   children: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>,
-  /** 
+  /**
  * The number of comments. Even though WPGraphQL denotes this field as an
    * integer, in WordPress this field should be saved as a numeric string for compatibility.
  **/
@@ -2074,7 +2074,7 @@ export type MediaItem = Node & ContentNode & DatabaseIdentifier & NodeWithTempla
   description: Maybe<Scalars['String']>,
   /** The desired slug of the post */
   desiredSlug: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If a user has edited the node within the past 15 seconds, this will return the
    * user that last edited. Null if the edit lock doesn&#039;t exist or is greater
    * than 15 seconds
@@ -2088,7 +2088,7 @@ export type MediaItem = Node & ContentNode & DatabaseIdentifier & NodeWithTempla
   enqueuedStylesheets: Maybe<ContentNodeToEnqueuedStylesheetConnection>,
   /** The filesize in bytes of the resource */
   fileSize: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * The global unique identifier for this post. This currently matches the value
    * stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot;
    * database table.
@@ -2114,12 +2114,12 @@ export type MediaItem = Node & ContentNode & DatabaseIdentifier & NodeWithTempla
   mediaType: Maybe<Scalars['String']>,
   /** The mime type of the mediaItem */
   mimeType: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The local modified time for a post. If a post was recently updated the
    * modified field will change to match the corresponding time.
  **/
   modified: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The GMT modified time for a post. If a post was recently updated the modified
    * field will change to match the corresponding time in GMT.
  **/
@@ -2136,7 +2136,7 @@ export type MediaItem = Node & ContentNode & DatabaseIdentifier & NodeWithTempla
   previewRevisionId: Maybe<Scalars['ID']>,
   /** The sizes attribute value for an image. */
   sizes: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
    * field and the post_name column in the database for the
    * &quot;post_objects&quot; table.
@@ -2144,7 +2144,7 @@ export type MediaItem = Node & ContentNode & DatabaseIdentifier & NodeWithTempla
   slug: Maybe<Scalars['String']>,
   /** Url of the mediaItem */
   sourceUrl: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The srcset attribute specifies the URL of the image to use in different
    * situations. It is a comma separated string of urls and their widths.
  **/
@@ -2295,9 +2295,9 @@ export enum MediaItemSizeEnum {
   /** MediaItem with the twentyseventeen-thumbnail-avatar size */
   TwentyseventeenThumbnailAvatar = 'TWENTYSEVENTEEN_THUMBNAIL_AVATAR',
   /** MediaItem with the 1536x1536 size */
-  1536X1536 = '_1536X1536',
+  '1536X1536' = '_1536X1536',
   /** MediaItem with the 2048x2048 size */
-  2048X2048 = '_2048X2048'
+  '2048X2048' = '_2048X2048'
 }
 
 /** The status of the media item object. */
@@ -2372,7 +2372,7 @@ export type MediaItemToCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -2423,7 +2423,7 @@ export type MediaSize = {
   width: Maybe<Scalars['String']>,
 };
 
-/** 
+/**
  * Menus are the containers for navigation items. Menus can be assigned to menu
  * locations, which are typically registered by the active theme.
  **/
@@ -2449,7 +2449,7 @@ export type Menu = Node & DatabaseIdentifier & {
 };
 
 
-/** 
+/**
  * Menus are the containers for navigation items. Menus can be assigned to menu
  * locations, which are typically registered by the active theme.
  **/
@@ -2755,7 +2755,7 @@ export type NodeWithAuthorToUserConnectionEdge = {
 
 /** A node that can have comments associated with it */
 export type NodeWithComments = {
-  /** 
+  /**
  * The number of comments. Even though WPGraphQL denotes this field as an
    * integer, in WordPress this field should be saved as a numeric string for compatibility.
  **/
@@ -2807,7 +2807,7 @@ export type NodeWithFeaturedImageToMediaItemConnectionEdge = {
 
 /** A node that can have page attributes */
 export type NodeWithPageAttributes = {
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -2818,7 +2818,7 @@ export type NodeWithPageAttributes = {
 export type NodeWithRevisions = {
   /** True if the node is a revision of another node */
   isRevision: Maybe<Scalars['Boolean']>,
-  /** 
+  /**
  * If the current node is a revision, this field exposes the node this is a
    * revision of. Returns null if the node is not a revision of another node.
  **/
@@ -2879,7 +2879,7 @@ export type Page = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   authorId: Maybe<Scalars['ID']>,
   /** Connection between the HierarchicalContentNode type and the ContentNode type */
   children: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>,
-  /** 
+  /**
  * The number of comments. Even though WPGraphQL denotes this field as an
    * integer, in WordPress this field should be saved as a numeric string for compatibility.
  **/
@@ -2900,7 +2900,7 @@ export type Page = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   dateGmt: Maybe<Scalars['String']>,
   /** The desired slug of the post */
   desiredSlug: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If a user has edited the node within the past 15 seconds, this will return the
    * user that last edited. Null if the edit lock doesn&#039;t exist or is greater
    * than 15 seconds
@@ -2918,7 +2918,7 @@ export type Page = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   featuredImageDatabaseId: Maybe<Scalars['Int']>,
   /** Globally unique ID of the featured image assigned to the node */
   featuredImageId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * The global unique identifier for this post. This currently matches the value
    * stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot;
    * database table.
@@ -2940,17 +2940,17 @@ export type Page = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   lastEditedBy: Maybe<ContentNodeToEditLastConnectionEdge>,
   /** The permalink of the post */
   link: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
   menuOrder: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * The local modified time for a post. If a post was recently updated the
    * modified field will change to match the corresponding time.
  **/
   modified: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The GMT modified time for a post. If a post was recently updated the modified
    * field will change to match the corresponding time in GMT.
  **/
@@ -2969,14 +2969,14 @@ export type Page = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   previewRevisionDatabaseId: Maybe<Scalars['Int']>,
   /** Whether the object is a node in the preview state */
   previewRevisionId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * If the current node is a revision, this field exposes the node this is a
    * revision of. Returns null if the node is not a revision of another node.
  **/
   revisionOf: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>,
   /** Connection between the page type and the page type */
   revisions: Maybe<PageToRevisionConnection>,
-  /** 
+  /**
  * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
    * field and the post_name column in the database for the
    * &quot;post_objects&quot; table.
@@ -3132,7 +3132,7 @@ export type PageToCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -3269,7 +3269,7 @@ export type Post = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   authorId: Maybe<Scalars['ID']>,
   /** Connection between the post type and the category type */
   categories: Maybe<PostToCategoryConnection>,
-  /** 
+  /**
  * The number of comments. Even though WPGraphQL denotes this field as an
    * integer, in WordPress this field should be saved as a numeric string for compatibility.
  **/
@@ -3290,7 +3290,7 @@ export type Post = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   dateGmt: Maybe<Scalars['String']>,
   /** The desired slug of the post */
   desiredSlug: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If a user has edited the node within the past 15 seconds, this will return the
    * user that last edited. Null if the edit lock doesn&#039;t exist or is greater
    * than 15 seconds
@@ -3310,7 +3310,7 @@ export type Post = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   featuredImageDatabaseId: Maybe<Scalars['Int']>,
   /** Globally unique ID of the featured image assigned to the node */
   featuredImageId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * The global unique identifier for this post. This currently matches the value
    * stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot;
    * database table.
@@ -3330,12 +3330,12 @@ export type Post = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   lastEditedBy: Maybe<ContentNodeToEditLastConnectionEdge>,
   /** The permalink of the post */
   link: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The local modified time for a post. If a post was recently updated the
    * modified field will change to match the corresponding time.
  **/
   modified: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The GMT modified time for a post. If a post was recently updated the modified
    * field will change to match the corresponding time in GMT.
  **/
@@ -3354,14 +3354,14 @@ export type Post = Node & ContentNode & DatabaseIdentifier & NodeWithTemplate & 
   previewRevisionDatabaseId: Maybe<Scalars['Int']>,
   /** Whether the object is a node in the preview state */
   previewRevisionId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * If the current node is a revision, this field exposes the node this is a
    * revision of. Returns null if the node is not a revision of another node.
  **/
   revisionOf: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>,
   /** Connection between the post type and the post type */
   revisions: Maybe<PostToRevisionConnection>,
-  /** 
+  /**
  * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name
    * field and the post_name column in the database for the
    * &quot;post_objects&quot; table.
@@ -3481,7 +3481,7 @@ export type PostTitleArgs = {
 
 /** Set relationships between the post to categories */
 export type PostCategoriesInput = {
-  /** 
+  /**
  * If true, this will append the category to existing related categories. If
    * false, this will replace existing relationships. Default true.
  **/
@@ -3489,7 +3489,7 @@ export type PostCategoriesInput = {
   nodes: Maybe<Array<Maybe<PostCategoriesNodeInput>>>,
 };
 
-/** 
+/**
  * List of categories to connect the post to. If an ID is set, it will be used to
  * create the connection. If not, it will look for a slug. If neither are valid
  * existing terms, and the site is configured to allow terms to be created during
@@ -3497,24 +3497,24 @@ export type PostCategoriesInput = {
  * then fallback to the slug if it exists.
  **/
 export type PostCategoriesNodeInput = {
-  /** 
+  /**
  * The description of the category. This field is used to set a description of
    * the category if a new one is created during the mutation.
  **/
   description: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The ID of the category. If present, this will be used to connect to the post.
    * If no existing category exists with this ID, no connection will be made.
  **/
   id: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * The name of the category. This field is used to create a new term, if term
    * creation is enabled in nested mutations, and if one does not already exist
    * with the provided slug or ID or if a slug or ID is not provided. If no name is
    * included and a term is created, the creation will fallback to the slug field.
  **/
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The slug of the category. If no ID is present, this field will be used to make
    * a connection. If no existing term exists with this slug, this field will be
    * used as a fallback to the Name field when creating a new term to connect to,
@@ -3823,7 +3823,7 @@ export type PostObjectUnion = Post | Page | MediaItem | ActionMonitorAction;
 
 /** Set relationships between the post to postFormats */
 export type PostPostFormatsInput = {
-  /** 
+  /**
  * If true, this will append the postFormat to existing related postFormats. If
    * false, this will replace existing relationships. Default true.
  **/
@@ -3831,7 +3831,7 @@ export type PostPostFormatsInput = {
   nodes: Maybe<Array<Maybe<PostPostFormatsNodeInput>>>,
 };
 
-/** 
+/**
  * List of postFormats to connect the post to. If an ID is set, it will be used to
  * create the connection. If not, it will look for a slug. If neither are valid
  * existing terms, and the site is configured to allow terms to be created during
@@ -3839,24 +3839,24 @@ export type PostPostFormatsInput = {
  * then fallback to the slug if it exists.
  **/
 export type PostPostFormatsNodeInput = {
-  /** 
+  /**
  * The description of the postFormat. This field is used to set a description of
    * the postFormat if a new one is created during the mutation.
  **/
   description: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The ID of the postFormat. If present, this will be used to connect to the
    * post. If no existing postFormat exists with this ID, no connection will be made.
  **/
   id: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * The name of the postFormat. This field is used to create a new term, if term
    * creation is enabled in nested mutations, and if one does not already exist
    * with the provided slug or ID or if a slug or ID is not provided. If no name is
    * included and a term is created, the creation will fallback to the slug field.
  **/
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The slug of the postFormat. If no ID is present, this field will be used to
    * make a connection. If no existing term exists with this slug, this field will
    * be used as a fallback to the Name field when creating a new term to connect
@@ -3895,7 +3895,7 @@ export enum PostStatusEnum {
 
 /** Set relationships between the post to tags */
 export type PostTagsInput = {
-  /** 
+  /**
  * If true, this will append the tag to existing related tags. If false, this
    * will replace existing relationships. Default true.
  **/
@@ -3903,7 +3903,7 @@ export type PostTagsInput = {
   nodes: Maybe<Array<Maybe<PostTagsNodeInput>>>,
 };
 
-/** 
+/**
  * List of tags to connect the post to. If an ID is set, it will be used to create
  * the connection. If not, it will look for a slug. If neither are valid existing
  * terms, and the site is configured to allow terms to be created during post
@@ -3911,24 +3911,24 @@ export type PostTagsInput = {
  * fallback to the slug if it exists.
  **/
 export type PostTagsNodeInput = {
-  /** 
+  /**
  * The description of the tag. This field is used to set a description of the tag
    * if a new one is created during the mutation.
  **/
   description: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The ID of the tag. If present, this will be used to connect to the post. If no
    * existing tag exists with this ID, no connection will be made.
  **/
   id: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * The name of the tag. This field is used to create a new term, if term creation
    * is enabled in nested mutations, and if one does not already exist with the
    * provided slug or ID or if a slug or ID is not provided. If no name is included
    * and a term is created, the creation will fallback to the slug field.
  **/
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The slug of the tag. If no ID is present, this field will be used to make a
    * connection. If no existing term exists with this slug, this field will be used
    * as a fallback to the Name field when creating a new term to connect to, if
@@ -3963,7 +3963,7 @@ export type PostToCategoryConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -3972,7 +3972,7 @@ export type PostToCategoryConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -4065,7 +4065,7 @@ export type PostToCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -4123,7 +4123,7 @@ export type PostToPostFormatConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -4132,7 +4132,7 @@ export type PostToPostFormatConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -4282,7 +4282,7 @@ export type PostToTagConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -4291,7 +4291,7 @@ export type PostToTagConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -4350,7 +4350,7 @@ export type PostToTermNodeConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -4359,7 +4359,7 @@ export type PostToTermNodeConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -4463,7 +4463,7 @@ export type RegisterUserInput = {
   clientMutationId: Scalars['String'],
   /** A string containing content about the user. */
   description: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A string that will be shown on the site. Defaults to user's username. It is
    * likely that you will want to change this, for both appearance and security
    * through obscurity (that is if you dont use and delete the default admin user).
@@ -4816,7 +4816,7 @@ export type RootMutationUpdateUserArgs = {
 /** The root entry point into the Graph */
 export type RootQuery = {
    __typename?: 'RootQuery',
-  /** 
+  /**
  * An object of the ActionMonitorAction Type. Used to keep a log of actions in
    * WordPress for cache invalidation in gatsby-source-wordpress.
  **/
@@ -5396,7 +5396,7 @@ export type RootQueryToCategoryConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -5405,7 +5405,7 @@ export type RootQueryToCategoryConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -5498,7 +5498,7 @@ export type RootQueryToCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -6017,7 +6017,7 @@ export type RootQueryToPostFormatConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -6026,7 +6026,7 @@ export type RootQueryToPostFormatConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -6085,7 +6085,7 @@ export type RootQueryToTagConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -6094,7 +6094,7 @@ export type RootQueryToTagConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -6173,7 +6173,7 @@ export type RootQueryToTermNodeConnectionWhereArgs = {
   cacheDomain: Maybe<Scalars['String']>,
   /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
   childOf: Maybe<Scalars['Int']>,
-  /** 
+  /**
  * True to limit results to terms that have no children. This parameter has no
    * effect on non-hierarchical taxonomies. Default false.
  **/
@@ -6182,7 +6182,7 @@ export type RootQueryToTermNodeConnectionWhereArgs = {
   descriptionLike: Maybe<Scalars['String']>,
   /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
   exclude: Maybe<Array<Maybe<Scalars['ID']>>>,
-  /** 
+  /**
  * Array of term ids to exclude along with all of their descendant terms. If
    * $include is non-empty, $exclude_tree is ignored. Default empty array.
  **/
@@ -6279,7 +6279,7 @@ export type RootQueryToUserConnectionWhereArgs = {
   nicenameNotIn: Maybe<Array<Maybe<Scalars['String']>>>,
   /** What paramater to use to order the objects by. */
   orderby: Maybe<Array<Maybe<UsersConnectionOrderbyInput>>>,
-  /** 
+  /**
  * An array of role names that users must match to be included in results. Note
    * that this is an inclusive list: users must match *each* role.
  **/
@@ -6288,7 +6288,7 @@ export type RootQueryToUserConnectionWhereArgs = {
   roleIn: Maybe<Array<Maybe<UserRoleEnum>>>,
   /** An array of role names to exclude. Users matching one or more of these roles will not be included in results. */
   roleNotIn: Maybe<Array<Maybe<UserRoleEnum>>>,
-  /** 
+  /**
  * Search keyword. Searches for possible string matches on columns. When
    * "searchColumns" is left empty, it tries to determine which column to search in
    * based on search string.
@@ -6815,7 +6815,7 @@ export type TermObjectUnion = Category | Tag | PostFormat;
 /** A theme object */
 export type Theme = Node & {
    __typename?: 'Theme',
-  /** 
+  /**
  * Name of the theme author(s), could also be a company name. This field is
    * equivalent to WP_Theme-&gt;get( &quot;Author&quot; ).
  **/
@@ -6830,13 +6830,13 @@ export type Theme = Node & {
   isRestricted: Maybe<Scalars['Boolean']>,
   /** Display name of the theme. This field is equivalent to WP_Theme-&gt;get( &quot;Name&quot; ). */
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The URL of the screenshot for the theme. The screenshot is intended to give an
    * overview of what the theme looks like. This field is equivalent to
    * WP_Theme-&gt;get_screenshot().
  **/
   screenshot: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The theme slug is used to internally match themes. Theme slugs can have
    * subdirectories like: my-theme/sub-theme. This field is equivalent to
    * WP_Theme-&gt;get_stylesheet().
@@ -6844,7 +6844,7 @@ export type Theme = Node & {
   slug: Maybe<Scalars['String']>,
   /** URI for the author/company website. This field is equivalent to WP_Theme-&gt;get( &quot;Tags&quot; ). */
   tags: Maybe<Array<Maybe<Scalars['String']>>>,
-  /** 
+  /**
  * A URI if the theme has a website associated with it. The Theme URI is handy
    * for directing users to a theme site for support etc. This field is equivalent
    * to WP_Theme-&gt;get( &quot;ThemeURI&quot; ).
@@ -7781,16 +7781,16 @@ export type UniformResourceIdentifiable = {
 /** Input for the updateActionMonitorAction mutation */
 export type UpdateActionMonitorActionInput = {
   clientMutationId: Scalars['String'],
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day (e.g.
    * 01/31/2017) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
   /** The ID of the ActionMonitorAction object */
   id: Scalars['ID'],
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -7825,7 +7825,7 @@ export type UpdateCategoryInput = {
   name: Maybe<Scalars['String']>,
   /** The ID of the category that should be set as the parent */
   parentId: Maybe<Scalars['ID']>,
-  /** 
+  /**
  * If this argument exists then the slug will be checked to see if it is not an
    * existing valid term. If that check succeeds (it is not a valid term), then it
    * is added and the term id is given. If it fails, then a check is made to
@@ -7859,11 +7859,11 @@ export type UpdateCommentInput = {
   commentOn: Maybe<Scalars['Int']>,
   /** Content of the comment. */
   content: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day ( e.g.
    * 01/31/2017 ) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
   /** The ID of the comment being updated. */
@@ -7880,7 +7880,7 @@ export type UpdateCommentPayload = {
   clientMutationId: Scalars['String'],
   /** The comment that was created */
   comment: Maybe<Comment>,
-  /** 
+  /**
  * Whether the mutation succeeded. If the comment is not approved, the server
    * will not return the comment to a non authenticated user, but a success message
    * can be returned if the create succeeded, and the client can optimistically add
@@ -7940,16 +7940,16 @@ export type UpdatePageInput = {
   commentStatus: Maybe<Scalars['String']>,
   /** The content of the object */
   content: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day (e.g.
    * 01/31/2017) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
   /** The ID of the page object */
   id: Scalars['ID'],
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -7984,7 +7984,7 @@ export type UpdatePostFormatInput = {
   id: Scalars['ID'],
   /** The name of the post_format object to mutate */
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If this argument exists then the slug will be checked to see if it is not an
    * existing valid term. If that check succeeds (it is not a valid term), then it
    * is added and the term id is given. If it fails, then a check is made to
@@ -8014,18 +8014,18 @@ export type UpdatePostInput = {
   commentStatus: Maybe<Scalars['String']>,
   /** The content of the object */
   content: Maybe<Scalars['String']>,
-  /** 
+  /**
  * The date of the object. Preferable to enter as year/month/day (e.g.
    * 01/31/2017) as it will rearrange date as fit if it is not specified.
    * Incomplete dates may have unintended results for example, "2017" as the input
-   * will use current date with timestamp 20:17 
+   * will use current date with timestamp 20:17
  **/
   date: Maybe<Scalars['String']>,
   /** The excerpt of the object */
   excerpt: Maybe<Scalars['String']>,
   /** The ID of the post object */
   id: Scalars['ID'],
-  /** 
+  /**
  * A field used for ordering posts. This is typically used with nav menu items or
    * for special ordering of hierarchical content types.
  **/
@@ -8114,7 +8114,7 @@ export type UpdateTagInput = {
   id: Scalars['ID'],
   /** The name of the post_tag object to mutate */
   name: Maybe<Scalars['String']>,
-  /** 
+  /**
  * If this argument exists then the slug will be checked to see if it is not an
    * existing valid term. If that check succeeds (it is not a valid term), then it
    * is added and the term id is given. If it fails, then a check is made to
@@ -8140,7 +8140,7 @@ export type UpdateUserInput = {
   clientMutationId: Scalars['String'],
   /** A string containing content about the user. */
   description: Maybe<Scalars['String']>,
-  /** 
+  /**
  * A string that will be shown on the site. Defaults to user's username. It is
    * likely that you will want to change this, for both appearance and security
    * through obscurity (that is if you dont use and delete the default admin user).
@@ -8204,7 +8204,7 @@ export type User = Node & UniformResourceIdentifiable & Commenter & DatabaseIden
   enqueuedScripts: Maybe<UserToEnqueuedScriptConnection>,
   /** Connection between the User type and the EnqueuedStylesheet type */
   enqueuedStylesheets: Maybe<UserToEnqueuedStylesheetConnection>,
-  /** 
+  /**
  * A complete list of capabilities including capabilities inherited from a role.
    * This is equivalent to the array keys of WP_User-&gt;allcaps.
  **/
@@ -8469,7 +8469,7 @@ export type UserToCommentConnectionWhereArgs = {
   contentStatus: Maybe<Array<Maybe<PostStatusEnum>>>,
   /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
   contentType: Maybe<Array<Maybe<ContentTypeEnum>>>,
-  /** 
+  /**
  * Array of IDs or email addresses of users whose unapproved comments will be
    * returned by the query regardless of $status. Default empty
  **/
@@ -8938,7 +8938,7 @@ export const Get_PostsDocument = gql`
  * __useGet_PostsQuery__
  *
  * To run a query within a React component, call `useGet_PostsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGet_PostsQuery` returns an object from Apollo Client that contains loading, error, and data properties 
+ * When your component renders, `useGet_PostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
@@ -8975,7 +8975,7 @@ export const Get_PostDocument = gql`
  * __useGet_PostQuery__
  *
  * To run a query within a React component, call `useGet_PostQuery` and pass it any options that fit your needs.
- * When your component renders, `useGet_PostQuery` returns an object from Apollo Client that contains loading, error, and data properties 
+ * When your component renders, `useGet_PostQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
@@ -9011,7 +9011,7 @@ export const Get_Post_By_SlugDocument = gql`
  * __useGet_Post_By_SlugQuery__
  *
  * To run a query within a React component, call `useGet_Post_By_SlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useGet_Post_By_SlugQuery` returns an object from Apollo Client that contains loading, error, and data properties 
+ * When your component renders, `useGet_Post_By_SlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;

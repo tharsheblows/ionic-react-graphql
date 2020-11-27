@@ -5,6 +5,7 @@ import { IonReactRouter } from '@ionic/react-router'
 
 import PostPage from '../pages/PostPage'
 import PostsPage from '../pages/PostsPage'
+import OutsideSite from '../pages/OutsideSite'
 
 const Router: React.FC = props => (
   <IonReactRouter>
@@ -19,6 +20,9 @@ const Router: React.FC = props => (
       <Route path="/" exact>
         <Redirect to="/posts" />
       </Route>
+	  <Route path="/outside" exact>
+		  <OutsideSite />
+	  </Route>
     </IonRouterOutlet>
   </IonReactRouter>
 )

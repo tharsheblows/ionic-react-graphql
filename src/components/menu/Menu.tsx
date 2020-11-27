@@ -28,7 +28,8 @@ interface Props extends Partial<Components.IonMenu> {
 }
 
 const defaultLinks: Link[] = [
-  { path: '/posts', title: 'Posts', icon: locate, direction: 'back' }
+  { path: '/posts', title: 'Posts', icon: locate, direction: 'back' },
+  { path: '/outside', title: 'outside', icon: locate, direction: 'forward'}
 ]
 
 const Menu: React.FC<Props> = props => {
